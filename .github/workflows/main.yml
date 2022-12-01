@@ -7,4 +7,5 @@ jobs:
       - run: ls -al
       - uses: actions/checkout@v3
       - run: ls -al
-      - run: cat kustomize/overlays/dev kustomization.yaml
+      - run: cd  kustomize/overlays/dev
+      - run: cat kustomization.yaml
