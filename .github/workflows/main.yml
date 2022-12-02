@@ -15,7 +15,7 @@ jobs:
             images:
               - name: nginx
                 newName: nginx
-                newTag: 1.23.1
+                newTag: 1.22.1
             EOF
       - name: after change
         run: cat kustomize/overlays/dev/kustomization.yaml
