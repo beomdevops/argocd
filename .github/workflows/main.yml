@@ -4,10 +4,7 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -al
       - uses: actions/checkout@v3
-      - run: ls -al
-      - run: cat kustomize/overlays/dev/kustomization.yaml
       - name: change yaml
         run: |
             cat <<EOF> kustomize/overlays/dev/kustomization.yaml 
@@ -22,4 +19,9 @@ jobs:
             EOF
       - name: after change
         run: cat kustomize/overlays/dev/kustomization.yaml
-      
+      - name: Commit report
+        run: |
+          git config --global user.name 'beomsun66'
+          git config --global user.email 'beomsun66@google.com'
+          git commit -am "relese/v1"
+          git push
