@@ -11,6 +11,10 @@ jobs:
       - name: change yaml
         run: |
             cat <<EOF> kustomize/overlays/dev/kustomization.yaml 
+            apiVersion: kustomize.config.k8s.io/v1beta1
+            kind: Kustomization
+            resources:
+            - ../../base
             images:
               - name: nginx
                 newName: nginx
